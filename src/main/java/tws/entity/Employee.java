@@ -1,43 +1,63 @@
 package tws.entity;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class Employee implements Serializable {
-    private int id;
-    private String name;
-    private String age;
+    private int employeeID;
+    private String parkingBoyName;
+    private int age;
+    private List<ParkingLot> parkingLotList;
+
+    public Employee(int employeeID, String parkingBoyName, int age, List<ParkingLot> parkingLotList) {
+        this.employeeID = employeeID;
+        this.parkingBoyName = parkingBoyName;
+        this.age = age;
+        this.parkingLotList = parkingLotList;
+    }
 
     public Employee() {
-
     }
 
-    public Employee(int id, String name, String age) {
-        this.id = id;
-        this.name = name;
-        this.age = age;
+    public int getEmployeeID() {
+        return employeeID;
     }
 
-    public int getId() {
-        return id;
+    public void setEmployeeID(int employeeID) {
+        this.employeeID = employeeID;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public String getParkingBoyName() {
+        return parkingBoyName;
     }
 
-    public String getName() {
-        return name;
+    public void setParkingBoyName(String parkingBoyName) {
+        this.parkingBoyName = parkingBoyName;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getAge() {
+    public int getAge() {
         return age;
     }
 
-    public void setAge(String age) {
+    public void setAge(int age) {
         this.age = age;
+    }
+
+    public List<ParkingLot> getParkingLotList() {
+        return parkingLotList;
+    }
+
+    public void setParkingLotList(List<ParkingLot> parkingLotList) {
+        this.parkingLotList = parkingLotList;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "employeeID=" + employeeID +
+                ", parkingBoyName='" + parkingBoyName + '\'' +
+                ", age=" + age +
+                ", parkingLotList=" + parkingLotList +
+                '}';
     }
 }
