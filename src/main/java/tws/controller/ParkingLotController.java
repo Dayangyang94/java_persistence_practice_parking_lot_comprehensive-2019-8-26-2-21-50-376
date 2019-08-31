@@ -4,6 +4,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import tws.entity.ParkingLot;
 import tws.repository.ParkingLotMapper;
+import tws.service.ParkingLotService;
 
 import java.net.URI;
 import java.util.List;
@@ -12,17 +13,18 @@ import java.util.List;
 @RequestMapping("/parkinglots")
 public class ParkingLotController {
     @Autowired
-    private ParkingLotMapper parkingLotMapper;
+    private ParkingLotService parkingLotService;
 
     @PostMapping("")
     public ResponseEntity<ParkingLotMapper> insert(@RequestBody ParkingLot parkingLot) {
-        parkingLotMapper.insert(parkingLot);
-        return ResponseEntity.created(URI.create("/parkinglots" +parkingLot.getParkingLotID())).build();
+        parkingLotService.insertParingLot(parkingLot);
+        return ResponseEntity.created(
+                URI.create("/parkinglots" +parkingLot.getParkingLotID())).build();
     }
 
     @GetMapping("")
     public ResponseEntity<List<ParkingLot>> getAll() {
-        return ResponseEntity.ok(parkingLotMapper.selectAll());
+        return ResponseEntity.ok(parkingLotService.selectParkingLots());
     }
 
 }

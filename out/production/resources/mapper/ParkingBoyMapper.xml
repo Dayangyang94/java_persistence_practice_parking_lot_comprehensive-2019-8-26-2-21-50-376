@@ -1,12 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="tws.repository.ParkingBoyMapper">
+    <resultMap id="EmployeeMap" type="tws.dto.ParkingBoyDto">
+        <id column="parkingId" property="parkingId" jdbcType="INTEGER"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <collection property="parkingLotList" ofType="tws.entity.ParkingLot"
+                    javaType="java.util.ArrayList">
+            <id column="parkingLotID" property="parkingLotID" jdbcType="INTEGER" />
+            <result column="capatity" property="capatity" jdbcType="INTEGER" />
+            <result column="availablePositionCount" property="availablePositionCount" jdbcType="INTEGER" />
+            <result column="parkingId" property="parkingId" jdbcType="INTEGER" />
+        </collection>
+    </resultMap>
+
+
+
     <select id="selectAll" resultType="tws.entity.ParkingBoy">
         select * from `parkingBoy`;
     </select>
 
     <insert id="insert">
-       insert into `parkingBoy` (`employeeID`,`name`)
-       values(#{parkingBoy.employeeID},#{parkingBoy.name});
+       insert into `parkingBoy` (`parkingId`,`name`)
+       values(#{parkingBoy.parkingId},#{parkingBoy.name});
     </insert>
+
+    <select id="selectAllParkingDto" resultMap="EmployeeMap">
+         select parkingBoy.parkingId,parkingBoy.name,parkingLot.parkingLotID,parkingLot.capatity,parkingLot.availablePositionCount
+         from parkingBoy,parkingLot
+         where parkingBoy.parkingId= parkingLot.parkingId;
+    </select>
+
 </mapper>

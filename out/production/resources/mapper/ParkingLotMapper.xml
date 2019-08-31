@@ -6,7 +6,7 @@
     </select>
 
     <insert id="insert">
-       insert into `parkingLot` (`parkingLotID`,`capatity`,`availablePositionCount`,`employeeID`)
-       values(#{parkingLot.parkingLotID},#{parkingLot.capatity},#{parkingLot.availablePositionCount},#{parkingLot.employeeID},);
+       insert into `parkingLot` (`parkingLotID`,`capatity`,`availablePositionCount`,`parkingId`)
+       values(#{parkingLot.parkingLotID},#{parkingLot.capatity},#{parkingLot.availablePositionCount},#{parkingLot.parkingId},);
     </insert>
 </mapper>

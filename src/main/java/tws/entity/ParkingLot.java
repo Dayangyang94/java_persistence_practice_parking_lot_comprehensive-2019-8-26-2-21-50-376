@@ -4,35 +4,40 @@ public class ParkingLot {
     private int parkingLotID;
     private int capatity;
     private int availablePositionCount;
-    private int employeeID;
+    private int parkingId;
 
     public ParkingLot() {
     }
 
-    public ParkingLot(int parkingLotID, int capatity, int availablePositionCount, int employeeID) {
+    public ParkingLot(int parkingLotID, int capatity, int availablePositionCount, int parkingId) {
         this.parkingLotID = parkingLotID;
         this.capatity = capatity;
         this.availablePositionCount = availablePositionCount;
-        this. employeeID = employeeID;
+        this. parkingId = parkingId;
     }
 
     public int getParkingLotID() {
+
         return parkingLotID;
     }
 
     public void setParkingLotID(int parkingLotID) {
+
         this.parkingLotID = parkingLotID;
     }
 
-    public int getCapatity() {
+    public int getCapatity()
+    {
         return capatity;
     }
 
     public void setCapatity(int capatity) {
+
         this.capatity = capatity;
     }
 
     public int getAvailablePositionCount() {
+
         return availablePositionCount;
     }
 
@@ -40,11 +45,13 @@ public class ParkingLot {
         this.availablePositionCount = availablePositionCount;
     }
 
-    public int getParkingBoyID() {
-        return  employeeID;
+    public int getParkingId() {
+
+        return  parkingId;
     }
 
-    public void setParkingBoyID(int employeeID) {
-        this. employeeID = employeeID;
+    public void setParkingId(int parkingId) {
+
+        this.parkingId = parkingId;
     }
 }
